@@ -250,10 +250,10 @@ L.Marker = L.Layer.extend({
 	},
 
 	_setPos: function (pos) {
-		L.DomUtil.setPosition(this._icon, pos);
+		L.DomUtil.setPosition(this._icon, pos, !this._zoomAnimated);
 
 		if (this._shadow) {
-			L.DomUtil.setPosition(this._shadow, pos);
+			L.DomUtil.setPosition(this._shadow, pos, !this._zoomAnimated);
 		}
 
 		this._zIndex = pos.y + this.options.zIndexOffset;

@@ -198,13 +198,13 @@ L.DomUtil = {
 	// Sets the position of `el` to coordinates specified by `position`,
 	// using CSS translate or top/left positioning depending on the browser
 	// (used by Leaflet internally to position its layers).
-	setPosition: function (el, point) { // (HTMLElement, Point[, Boolean])
+	setPosition: function (el, point, no3d) { // (HTMLElement, Point[, Boolean])
 
 		/*eslint-disable */
 		el._leaflet_pos = point;
 		/*eslint-enable */
 
-		if (L.Browser.any3d) {
+		if (L.Browser.any3d && !no3d) {
 			L.DomUtil.setTransform(el, point);
 		} else {
 			el.style.left = point.x + 'px';
